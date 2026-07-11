@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            background: #f5f7fa;
+        }
+        .doc-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { border-bottom: 2px solid #0047ab; padding-bottom: 12px; }
+        h2 { margin-top: 24px; color: #0047ab; }
+        ul { margin: 12px 0 12px 24px; }
+        li { margin: 6px 0; }
+        [data-theme="dark"] body { background: #0d1117; }
+        [data-theme="dark"] .doc-container { background: #161b22; color: #f0f6fc; }
+        [data-theme="dark"] h1 { border-bottom-color: #58a6ff; }
+        [data-theme="dark"] h2 { color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <h1>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h1>
+        <p><strong>Владелец сайта:</strong> {{ owner_name }} (ИНН {{ owner_inn }})<br>
+        <strong>Контактный email:</strong> {{ contact_email }}</p>
+
+        <h2>1. Общие положения</h2>
+        <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта <strong>{{ site_name }}</strong>.</p>
+
+        <h2>2. Какие данные собираются</h2>
+        <ul>
+            <li>Фамилия, Имя, Отчество</li>
+            <li>Контактный номер телефона</li>
+            <li>Информация о грузе (маршрут, вес, габариты)</li>
+            <li>IP-адрес, тип браузера, время посещения (для технической безопасности и противодействия спаму)</li>
+        </ul>
+
+        <h2>3. Цели сбора</h2>
+        <ul>
+            <li>Обработка заявок на грузоперевозку</li>
+            <li>Заключение и исполнение договоров перевозки</li>
+            <li>Информирование о статусе заказа</li>
+            <li>Улучшение качества обслуживания</li>
+        </ul>
+
+        <h2>4. Передача третьим лицам</h2>
+        <p>Персональные данные не передаются третьим лицам, за исключением случаев, прямо предусмотренных законодательством Российской Федерации.</p>
+
+        <h2>5. Меры защиты</h2>
+        <ul>
+            <li>Сайт использует HTTPS-шифрование</li>
+            <li>Все данные хранятся на защищенном сервере</li>
+            <li>Доступ к базе данных ограничен</li>
+            <li>Внедрена защита от флуда (не более 5 заявок в минуту с одного IP)</li>
+        </ul>
+
+        <h2>6. Права пользователя</h2>
+        <p>Вы имеете право:</p>
+        <ul>
+            <li>Отозвать согласие на обработку данных</li>
+            <li>Запросить копию своих данных</li>
+            <li>Потребовать удаления или уточнения данных</li>
+        </ul>
+        <p>Для этого направьте письменное обращение на email: <strong>{{ contact_email }}</strong>.</p>
+
+        <h2>7. Изменение политики</h2>
+        <p>Администрация оставляет за собой право вносить изменения в Политику конфиденциальности. Актуальная версия всегда опубликована на этой странице.</p>
+
+        <p style="margin-top: 30px; font-size: 14px; color: #666;">
+            <em>Дата актуализации: 06.07.2026</em>
+        </p>
+    </div>
+</body>
+</html>

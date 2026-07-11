@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Согласие на обработку персональных данных</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        body {
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            background: #f5f7fa;
+        }
+        .doc-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { border-bottom: 2px solid #0047ab; padding-bottom: 12px; }
+        h2 { margin-top: 24px; color: #0047ab; }
+        ul { margin: 12px 0 12px 24px; }
+        li { margin: 6px 0; }
+        [data-theme="dark"] body { background: #0d1117; }
+        [data-theme="dark"] .doc-container { background: #161b22; color: #f0f6fc; }
+        [data-theme="dark"] h1 { border-bottom-color: #58a6ff; }
+        [data-theme="dark"] h2 { color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="doc-container">
+        <h1>СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</h1>
+        <p><strong>Владелец сайта:</strong> {{ owner_name }}<br>
+        <strong>ИНН:</strong> {{ owner_inn }}<br>
+        <strong>Адрес регистрации:</strong> {{ owner_address }}</p>
+
+        <p>Я, оставляя заявку на сайте <strong>{{ site_name }}</strong>, даю свое свободное, конкретное, информированное и однозначное согласие на обработку следующих персональных данных:</p>
+        <ul>
+            <li>Фамилия, Имя, Отчество</li>
+            <li>Контактный номер телефона</li>
+            <li>Сведения о грузе (маршрут, вес, габариты)</li>
+        </ul>
+
+        <h2>Цели обработки</h2>
+        <p>Связь с клиентом для уточнения деталей заказа, заключения и исполнения договора перевозки, информирования о статусе заявки.</p>
+
+        <h2>Перечень действий с данными</h2>
+        <p>Сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, блокирование, уничтожение.</p>
+
+        <h2>Срок хранения</h2>
+        <p>3 года с момента последнего обращения клиента.</p>
+
+        <h2>Отзыв согласия</h2>
+        <p>Согласие может быть отозвано путем направления письменного заявления на электронную почту: <strong>{{ contact_email }}</strong>. В этом случае ваши данные будут удалены в течение 10 рабочих дней.</p>
+
+        <h2>Настоящее согласие</h2>
+        <p>Действует с момента отправки формы на сайте и до истечения срока хранения или отзыва.</p>
+
+        <p style="margin-top: 30px; font-size: 14px; color: #666;">
+            <em>Дата актуализации: 06.07.2026</em>
+        </p>
+    </div>
+</body>
+</html>

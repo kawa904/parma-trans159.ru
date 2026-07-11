@@ -1,0 +1,813 @@
+/* ===== ИМПОРТ ШРИФТА ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== ТЕМНАЯ ТЕМА (основная) ===== */
+:root {
+    --bg-primary: #0b1a2e;
+    --bg-cover: linear-gradient(145deg, #102b3f 0%, #1a3a4f 100%);
+    --text-primary: #ffffff;
+    --text-secondary: #b6d0e0;
+    --text-muted: #9bb8d0;
+    --accent: #f5c842;
+    --accent-hover: #f7d04a;
+    --border-color: rgba(255, 255, 255, 0.06);
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --input-border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    --btn-shadow: 0 8px 25px rgba(245, 200, 66, 0.35);
+    --success-bg: rgba(46, 125, 50, 0.15);
+    --success-text: #81c784;
+    --error-bg: rgba(198, 40, 40, 0.15);
+    --error-text: #ef9a9a;
+    --ripple-color: rgba(255, 255, 255, 0.3);
+    --theme-btn-border: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== СВЕТЛАЯ ТЕМА ===== */
+[data-theme="light"] {
+    --bg-primary: #f0f4f8;
+    --bg-cover: linear-gradient(145deg, #ffffff 0%, #e8edf2 100%);
+    --text-primary: #0b1a2e;
+    --text-secondary: #1a3a4f;
+    --text-muted: #5a7a8f;
+    --border-color: rgba(0, 0, 0, 0.06);
+    --input-bg: rgba(255, 255, 255, 0.8);
+    --input-border: rgba(0, 0, 0, 0.1);
+    --shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    --btn-shadow: 0 8px 25px rgba(245, 200, 66, 0.4);
+    --success-bg: rgba(46, 125, 50, 0.1);
+    --success-text: #2e7d32;
+    --error-bg: rgba(198, 40, 40, 0.1);
+    --error-text: #c62828;
+    --ripple-color: rgba(0, 0, 0, 0.15);
+    --theme-btn-border: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background 0.4s ease;
+}
+
+.cover {
+    max-width: 1280px;
+    width: 100%;
+    background: var(--bg-cover);
+    border-radius: 48px;
+    box-shadow: var(--shadow), 0 0 0 1px var(--border-color) inset;
+    padding: 50px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    backdrop-filter: blur(2px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cover::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(70, 150, 255, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ (ВИДИМЫЙ) ===== */
+.theme-toggle-wrapper {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    z-index: 10;
+}
+
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid var(--theme-btn-border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(245, 200, 66, 0.08);
+}
+
+.theme-toggle-btn:hover {
+    transform: rotate(60deg) scale(1.08);
+    background: rgba(245, 200, 66, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 30px rgba(245, 200, 66, 0.2);
+}
+
+.theme-toggle-btn i {
+    transition: transform 0.5s ease;
+}
+
+[data-theme="light"] .theme-toggle-btn i {
+    transform: rotate(180deg);
+}
+
+/* ===== ЛЕВАЯ КОЛОНКА ===== */
+.cover-content {
+    flex: 1 1 55%;
+    min-width: 300px;
+    padding-right: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255, 215, 0, 0.15);
+    backdrop-filter: blur(4px);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin-bottom: 24px;
+}
+
+.badge i {
+    margin-right: 8px;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 8vw, 5.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+h1 .highlight {
+    background: linear-gradient(135deg, #f5c842 0%, #f7b731 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.subhead {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    opacity: 0.9;
+    transition: color 0.3s ease;
+}
+
+.subhead i {
+    color: var(--accent);
+    margin-right: 4px;
+}
+
+/* ===== ФОРМА ===== */
+.order-form {
+    margin-top: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: color 0.3s ease;
+}
+
+label i {
+    color: var(--accent);
+    margin-right: 6px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--accent);
+    font-size: 15px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.input-wrapper:focus-within .input-icon {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1.5px solid var(--input-border);
+    border-radius: 14px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.input-wrapper textarea {
+    padding-top: 14px;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(245, 200, 66, 0.1);
+    background: var(--input-bg);
+    transform: translateY(-1px);
+}
+
+/* ===== ЧЕКБОКСЫ ===== */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.checkbox-group input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+.checkbox-group label {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    opacity: 1;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.checkbox-group label i {
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.checkbox-group label a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1.5px dashed rgba(245, 200, 66, 0.3);
+    transition: all 0.2s ease;
+}
+
+.checkbox-group label a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent-hover);
+}
+
+/* ===== КНОПКА 3D + ОБЪЁМНАЯ ===== */
+.submit-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 38px;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 60px;
+    background: linear-gradient(135deg, #f5c842 0%, #f7b731 40%, #e8a820 100%);
+    color: #0b1a2e;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow:
+        0 8px 25px rgba(245, 200, 66, 0.35),
+        0 4px 0 0 #c4901a,
+        0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+.submit-btn .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.submit-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Ховер — кнопка поднимается */
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(245, 200, 66, 0.45),
+        0 4px 0 0 #c4901a,
+        0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f7d04a 0%, #f5c842 40%, #e8a820 100%);
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px) scale(1.05);
+}
+
+/* Активное состояние — кнопка "нажимается" */
+.submit-btn:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 4px 15px rgba(245, 200, 66, 0.3),
+        0 2px 0 0 #c4901a,
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Отключенное состояние */
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 0 0 #c4901a, 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.submit-btn:disabled i {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== RIPPLE-ЭФФЕКТ ===== */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--ripple-color);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== РЕЗУЛЬТАТ ===== */
+#result {
+    margin-top: 14px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-weight: 600;
+    animation: slideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 14px;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.success {
+    background: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid var(--success-text);
+}
+
+.error {
+    background: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid var(--error-text);
+}
+
+.hidden {
+    display: none;
+}
+
+.small {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 400;
+    opacity: 0.6;
+    transition: color 0.3s ease;
+}
+
+.small i {
+    color: var(--accent);
+    font-size: 8px;
+}
+
+/* ===== СТАТИСТИКА ===== */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-item i {
+    font-size: 1.6rem;
+    color: var(--accent);
+    opacity: 0.8;
+    width: 36px;
+}
+
+.stat-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+/* ===== ФУТЕР ===== */
+footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    transition: all 0.3s ease;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+footer a:hover {
+    border-bottom-color: var(--accent);
+}
+
+footer i {
+    margin: 0 4px 0 8px;
+    color: var(--accent);
+}
+
+/* ===== ПРАВАЯ КОЛОНКА ===== */
+.cover-visual {
+    flex: 1 1 35%;
+    min-width: 220px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.visual-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    padding: 30px 24px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+[data-theme="light"] .visual-wrapper {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.icon-card i {
+    font-size: 2.4rem;
+    color: var(--accent);
+    margin-bottom: 6px;
+    filter: drop-shadow(0 0 6px rgba(245, 200, 66, 0.15));
+}
+
+.icon-card span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-secondary);
+}
+
+.icon-card small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.truck-badge {
+    background: rgba(245, 200, 66, 0.08);
+    border-radius: 60px;
+    padding: 12px 18px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(245, 200, 66, 0.1);
+    backdrop-filter: blur(2px);
+    margin-top: 8px;
+}
+
+.truck-badge i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+.truck-badge span {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.truck-badge strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.cities-tags {
+    margin-top: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cities-tags span {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.cities-tags span i {
+    color: var(--accent);
+    margin-right: 4px;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 900px) {
+    .cover {
+        padding: 40px 30px;
+        border-radius: 32px;
+    }
+    .cover-content {
+        padding-right: 0;
+        flex: 1 1 100%;
+    }
+    .cover-visual {
+        flex: 1 1 100%;
+        margin-top: 36px;
+        justify-content: center;
+    }
+    .visual-wrapper {
+        max-width: 100%;
+        padding: 24px 20px;
+    }
+    .icon-grid {
+        gap: 16px 20px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .theme-toggle-wrapper {
+        top: 16px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cover {
+        padding: 28px 18px;
+        border-radius: 24px;
+    }
+    .theme-toggle-wrapper {
+        top: 12px;
+        right: 14px;
+    }
+    .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    .stats {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .stat-item {
+        gap: 12px;
+    }
+    .icon-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .visual-wrapper {
+        padding: 18px 14px;
+        border-radius: 28px;
+    }
+    .checkbox-group label {
+        font-size: 13px;
+    }
+    .submit-btn {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+        border-radius: 50px;
+    }
+/* ===== ЛОГОТИП ПАРМА ТРАНС ===== */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 5;
+}
+
+.logo-svg {
+    height: 56px;
+    width: auto;
+    max-width: 320px;
+    transition: transform 0.3s ease;
+}
+
+.logo-svg:hover {
+    transform: scale(1.02);
+}
+
+/* Светлая тема для логотипа */
+[data-theme="light"] .logo-svg text {
+    fill: #0b1a2e !important;
+}
+
+[data-theme="light"] .logo-svg text tspan {
+    fill: #f5c842 !important;
+}
+
+[data-theme="light"] .logo-svg rect[fill="#333"] {
+    fill: #555 !important;
+}
+
+[data-theme="light"] .logo-svg circle[fill="#666"] {
+    fill: #999 !important;
+}
+
+[data-theme="light"] .logo-svg text[fill="rgba(255,255,255,0.35)"] {
+    fill: rgba(0,0,0,0.25) !important;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .logo-svg {
+        height: 42px;
+        max-width: 220px;
+    }
+}
