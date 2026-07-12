@@ -695,47 +695,6 @@ footer i {
     margin-right: 4px;
 }
 
-/* ===== ЛОГОТИП ПАРМА ТРАНС ===== */
-.logo-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 5;
-}
-
-.logo-svg {
-    height: 56px;
-    width: auto;
-    max-width: 320px;
-    transition: transform 0.3s ease;
-}
-
-.logo-svg:hover {
-    transform: scale(1.02);
-}
-
-/* Светлая тема для логотипа */
-[data-theme="light"] .logo-svg text {
-    fill: #0b1a2e !important;
-}
-
-[data-theme="light"] .logo-svg text tspan {
-    fill: #f5c842 !important;
-}
-
-[data-theme="light"] .logo-svg rect[fill="#333"] {
-    fill: #555 !important;
-}
-
-[data-theme="light"] .logo-svg circle[fill="#666"] {
-    fill: #999 !important;
-}
-
-[data-theme="light"] .logo-svg text[fill="rgba(255,255,255,0.35)"] {
-    fill: rgba(0,0,0,0.25) !important;
-}
-
 /* ===== НОВАЯ АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ===== */
 /* Планшеты и маленькие ноутбуки (до 1024px) */
 @media (max-width: 1024px) {
@@ -789,11 +748,16 @@ footer i {
         width: 100% !important;
     }
 
-    .logo-svg {
-        height: 48px !important;
-        max-width: 95% !important;
-        width: auto !important;
-        display: block !important;
+    .logo-wrapper span {
+        font-size: 32px !important;
+    }
+
+    .logo-wrapper div div:first-child {
+        font-size: 22px !important;
+    }
+
+    .logo-wrapper div div:last-child {
+        font-size: 9px !important;
     }
 
     /* Кнопка темы */
@@ -900,9 +864,19 @@ footer i {
         padding: 16px 10px !important;
         border-radius: 18px !important;
     }
-    .logo-svg {
-        height: 36px !important;
+
+    .logo-wrapper span {
+        font-size: 28px !important;
     }
+
+    .logo-wrapper div div:first-child {
+        font-size: 18px !important;
+    }
+
+    .logo-wrapper div div:last-child {
+        font-size: 8px !important;
+    }
+
     h1 {
         font-size: 1.8rem !important;
     }
