@@ -14,57 +14,21 @@
 </head>
 <body>
     <div class="cover">
-        <!-- ===== ЛОГОТИП С ГАЗЕЛЬЮ ===== -->
-        <div class="logo-wrapper">
-            <svg class="logo-svg" viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
-                <!-- ГАЗель -->
-                <g transform="translate(0, 6)">
-                    <rect x="2" y="4" width="40" height="20" rx="3" fill="#f5c842"/>
-                    <rect x="4" y="2" width="18" height="6" rx="2" fill="#d4a020"/>
-                    <rect x="6" y="6" width="14" height="8" rx="1.5" fill="#1a3a4f" opacity="0.6"/>
-                    <rect x="8" y="8" width="4" height="4" rx="0.5" fill="#7ec8e3" opacity="0.5"/>
-                    <rect x="14" y="8" width="4" height="4" rx="0.5" fill="#7ec8e3" opacity="0.5"/>
-                    <rect x="2" y="14" width="5" height="4" rx="1" fill="#ffd700" opacity="0.8"/>
-                    <rect x="35" y="14" width="5" height="4" rx="1" fill="#ff6347" opacity="0.6"/>
-                    <rect x="0" y="20" width="44" height="3" rx="1" fill="#666"/>
-                    <circle cx="14" cy="28" r="7" fill="#333" stroke="#f5c842" stroke-width="1.5"/>
-                    <circle cx="14" cy="28" r="3" fill="#666"/>
-                    <circle cx="14" cy="28" r="1" fill="#888"/>
-                    <circle cx="38" cy="28" r="7" fill="#333" stroke="#f5c842" stroke-width="1.5"/>
-                    <circle cx="38" cy="28" r="3" fill="#666"/>
-                    <circle cx="38" cy="28" r="1" fill="#888"/>
-                    <rect x="44" y="6" width="48" height="18" rx="2" fill="#f5c842"/>
-                    <rect x="46" y="8" width="10" height="6" rx="1" fill="#d4a020"/>
-                    <rect x="58" y="8" width="10" height="6" rx="1" fill="#d4a020"/>
-                    <rect x="70" y="8" width="10" height="6" rx="1" fill="#d4a020"/>
-                    <rect x="82" y="8" width="8" height="6" rx="1" fill="#d4a020"/>
-                    <line x1="46" y1="6" x2="46" y2="24" stroke="#d4a020" stroke-width="1.5"/>
-                    <line x1="56" y1="6" x2="56" y2="24" stroke="#d4a020" stroke-width="1.5"/>
-                    <line x1="66" y1="6" x2="66" y2="24" stroke="#d4a020" stroke-width="1.5"/>
-                    <line x1="76" y1="6" x2="76" y2="24" stroke="#d4a020" stroke-width="1.5"/>
-                    <line x1="86" y1="6" x2="86" y2="24" stroke="#d4a020" stroke-width="1.5"/>
-                    <rect x="48" y="12" width="8" height="6" rx="1" fill="#8B6914" opacity="0.6"/>
-                    <rect x="60" y="10" width="8" height="8" rx="1" fill="#8B6914" opacity="0.5"/>
-                    <rect x="72" y="11" width="8" height="7" rx="1" fill="#8B6914" opacity="0.6"/>
-                </g>
-
-                <!-- Щит с галочкой -->
-                <g transform="translate(100, 3)">
-                    <rect x="0" y="0" width="28" height="28" rx="6" fill="#f5c842" stroke="#d4a020" stroke-width="1.5"/>
-                    <polyline points="6,14 13,21 22,8" fill="none" stroke="#0b1a2e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-
-                <!-- ПАРМА ТРАНС -->
-                <text x="136" y="18" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff" letter-spacing="1.5">
-                    ПАРМА
-                    <tspan font-size="14" fill="#f5c842" dx="-8" dy="6" font-weight="700">ТРАНС</tspan>
-                </text>
-
-                <!-- Подпись: ПЕРЕВОЗКИ ПО ПЕРМСКОМУ КРАЮ -->
-                <text x="136" y="44" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.3)" font-weight="400" letter-spacing="2.5">
-                    ПЕРЕВОЗКИ ПО ПЕРМСКОМУ КРАЮ
-                </text>
-            </svg>
+        <!-- ===== НОВЫЙ ЛОГОТИП С ГАЗЕЛЬЮ ===== -->
+        <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; margin-bottom: 8px; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center;">
+                <!-- Смайлик-газель -->
+                <span style="font-size: 46px; line-height: 1;">🚛</span>
+                <!-- Текст логотипа -->
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <span style="font-family: 'Inter', sans-serif; font-size: 34px; font-weight: 900; color: var(--text-primary); letter-spacing: 1.5px; line-height: 1.1;">
+                        ПАРМА ТРАНС
+                    </span>
+                    <span style="font-family: 'Inter', sans-serif; font-size: 11px; color: var(--accent); letter-spacing: 2.5px; font-weight: 600; text-transform: uppercase; opacity: 0.8;">
+                        ПЕРЕВОЗКИ ПО ПЕРМСКОМУ КРАЮ
+                    </span>
+                </div>
+            </div>
         </div>
 
         <!-- Переключатель темы -->
